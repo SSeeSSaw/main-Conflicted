@@ -14,8 +14,8 @@ import seedu.address.logic.commands.AddFreshmenCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.freshmen.Address;
 import seedu.address.model.freshmen.Email;
-import seedu.address.model.freshmen.Name;
 import seedu.address.model.freshmen.Freshmen;
+import seedu.address.model.freshmen.Name;
 import seedu.address.model.freshmen.Phone;
 import seedu.address.model.tag.Tag;
 
@@ -38,10 +38,10 @@ public class AddFreshmenCommandParser implements Parser<AddFreshmenCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddFreshmenCommand.MESSAGE_USAGE));
         }
 
-        Name name = FParserUtil.parseName_f(argMultimap.getValue(PREFIX_NAME).get());
-        Phone phone = FParserUtil.parsePhone_f(argMultimap.getValue(PREFIX_PHONE).get());
-        Email email = FParserUtil.parseEmail_f(argMultimap.getValue(PREFIX_EMAIL).get());
-        Address address = FParserUtil.parseAddress_f(argMultimap.getValue(PREFIX_ADDRESS).get());
+        Name name = FParserUtil.parseNameF(argMultimap.getValue(PREFIX_NAME).get());
+        Phone phone = FParserUtil.parsePhoneF(argMultimap.getValue(PREFIX_PHONE).get());
+        Email email = FParserUtil.parseEmailF(argMultimap.getValue(PREFIX_EMAIL).get());
+        Address address = FParserUtil.parseAddressF(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Freshmen freshmen = new Freshmen(name, phone, email, address, tagList);

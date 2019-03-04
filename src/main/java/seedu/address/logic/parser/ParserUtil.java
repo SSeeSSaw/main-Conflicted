@@ -15,14 +15,11 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 
-
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
  */
 public class  ParserUtil {
-
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
-
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
@@ -35,7 +32,6 @@ public class  ParserUtil {
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
     }
-
     /**
      * Parses a {@code String name} into a {@code Name}.
      * Leading and trailing whitespaces will be trimmed.
@@ -50,7 +46,6 @@ public class  ParserUtil {
         }
         return new Name(trimmedName);
     }
-
     /**
      * Parses a {@code String phone} into a {@code Phone}.
      * Leading and trailing whitespaces will be trimmed.
@@ -65,7 +60,6 @@ public class  ParserUtil {
         }
         return new Phone(trimmedPhone);
     }
-
     /**
      * Parses a {@code String address} into an {@code Address}.
      * Leading and trailing whitespaces will be trimmed.
@@ -80,7 +74,6 @@ public class  ParserUtil {
         }
         return new Address(trimmedAddress);
     }
-
     /**
      * Parses a {@code String email} into an {@code Email}.
      * Leading and trailing whitespaces will be trimmed.
