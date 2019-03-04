@@ -7,10 +7,11 @@ import java.util.List;
 import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
-import seedu.address.model.person.Person;
 import seedu.address.model.freshmen.Freshmen;
-import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.person.Person;
 import seedu.address.model.freshmen.UniqueFreshmenList;
+import seedu.address.model.person.UniquePersonList;
+
 
 /**
  * Wraps all data at the address-book level
@@ -76,7 +77,9 @@ public class AddressBook implements ReadOnlyAddressBook {
         requireNonNull(person);
         return persons.contains(person);
     }
-
+    /**
+     * Returns true if a freshman with the same identity as {@code freshman} exists in the address book.
+     */
     public boolean hasFreshmen(Freshmen freshman) {
         requireNonNull(freshman);
         return freshmen.contains(freshman);
@@ -90,7 +93,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.add(p);
         indicateModified();
     }
-
+    /**
+     * Adds a freshmen to the address book.
+     * The freshmen must not already exist in the address book.
+     */
     public void addFreshmen(Freshmen f) {
         freshmen.add(f);
         indicateModified();
