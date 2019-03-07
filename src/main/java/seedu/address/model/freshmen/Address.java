@@ -22,15 +22,14 @@ public class Address {
     /**
      * Constructs an {@code Address}.
      *
-     * @param address A valid address.
+     * @param addressF A valid address.
      */
-    public Address(String address_f) {
-        requireNonNull(address_f);
-        checkArgument(isValidAddress(address_f), MESSAGE_CONSTRAINTS);
-        value = address_f;
+    public Address(String addressF) {
+        requireNonNull(addressF);
+        checkArgument(isValidAddress(addressF), MESSAGE_CONSTRAINTS);
+        value = addressF;
     }
 
-    //trying to change the mergability.
     /**
      * Returns true if a given string is a valid email.
      */

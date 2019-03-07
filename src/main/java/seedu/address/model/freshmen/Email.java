@@ -32,12 +32,12 @@ public class Email {
     /**
      * Constructs an {@code Email}.
      *
-     * @param email A valid email address.
+     * @param emailF A valid email address.
      */
-    public Email(String email_f) {
-        requireNonNull(email_f);
-        checkArgument(isValidEmail(email_f), MESSAGE_CONSTRAINTS);
-        value = email_f;
+    public Email(String emailF) {
+        requireNonNull(emailF);
+        checkArgument(isValidEmail(emailF), MESSAGE_CONSTRAINTS);
+        value = emailF;
     }
 
     /**

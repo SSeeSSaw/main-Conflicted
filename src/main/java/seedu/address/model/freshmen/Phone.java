@@ -18,12 +18,12 @@ public class Phone {
     /**
      * Constructs a {@code Phone}.
      *
-     * @param phone A valid phone number.
+     * @param phoneF A valid phone number.
      */
-    public Phone(String phone_f) {
-        requireNonNull(phone_f);
-        checkArgument(isValidPhone(phone_f), MESSAGE_CONSTRAINTS);
-        value = phone_f;
+    public Phone(String phoneF) {
+        requireNonNull(phoneF);
+        checkArgument(isValidPhone(phoneF), MESSAGE_CONSTRAINTS);
+        value = phoneF;
     }
 
     /**

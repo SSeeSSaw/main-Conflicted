@@ -1,16 +1,15 @@
 package seedu.address.model.freshmen;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import seedu.address.model.freshmen.Freshmen;
-import seedu.address.model.freshmen.exceptions.DuplicateFreshmenException;
-import seedu.address.model.freshmen.exceptions.FreshmenNotFoundException;
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Iterator;
 import java.util.List;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import seedu.address.model.freshmen.exceptions.DuplicateFreshmenException;
+import seedu.address.model.freshmen.exceptions.FreshmenNotFoundException;
 
 /**
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.
@@ -25,16 +24,16 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
  */
 public class UniqueFreshmenList implements Iterable<Freshmen> {
 
-    private final ObservableList<Freshmen> internalList_f = FXCollections.observableArrayList();
+    private final ObservableList<Freshmen> internalListF = FXCollections.observableArrayList();
     private final ObservableList<Freshmen> internalUnmodifiableList =
-            FXCollections.unmodifiableObservableList(internalList_f);
+            FXCollections.unmodifiableObservableList(internalListF);
 
     /**
      * Returns true if the list contains an equivalent person as the given argument.
      */
     public boolean contains(Freshmen toCheck) {
         requireNonNull(toCheck);
-        return internalList_f.stream().anyMatch(toCheck::isSamePerson);
+        return internalListF.stream().anyMatch(toCheck::isSamePerson);
     }
 
     /**
@@ -46,7 +45,7 @@ public class UniqueFreshmenList implements Iterable<Freshmen> {
         if (contains(toAdd)) {
             throw new DuplicateFreshmenException();
         }
-        internalList_f.add(toAdd);
+        internalListF.add(toAdd);
     }
 
     /**
@@ -57,7 +56,7 @@ public class UniqueFreshmenList implements Iterable<Freshmen> {
     public void setPerson(Freshmen target, Freshmen editedPerson) {
         requireAllNonNull(target, editedPerson);
 
-        int index = internalList_f.indexOf(target);
+        int index = internalListF.indexOf(target);
         if (index == -1) {
             throw new FreshmenNotFoundException();
         }
@@ -66,7 +65,7 @@ public class UniqueFreshmenList implements Iterable<Freshmen> {
             throw new DuplicateFreshmenException();
         }
 
-        internalList_f.set(index, editedPerson);
+        internalListF.set(index, editedPerson);
     }
 
     /**
@@ -75,14 +74,14 @@ public class UniqueFreshmenList implements Iterable<Freshmen> {
      */
     public void remove(Freshmen toRemove) {
         requireNonNull(toRemove);
-        if (!internalList_f.remove(toRemove)) {
+        if (!internalListF.remove(toRemove)) {
             throw new FreshmenNotFoundException();
         }
     }
 
     public void setPersons(UniqueFreshmenList replacement) {
         requireNonNull(replacement);
-        internalList_f.setAll(replacement.internalList_f);
+        internalListF.setAll(replacement.internalListF);
     }
 
     /**
@@ -95,7 +94,7 @@ public class UniqueFreshmenList implements Iterable<Freshmen> {
             throw new DuplicateFreshmenException();
         }
 
-        internalList_f.setAll(freshmen);
+        internalListF.setAll(freshmen);
     }
 
     /**
@@ -107,19 +106,19 @@ public class UniqueFreshmenList implements Iterable<Freshmen> {
 
     @Override
     public Iterator<Freshmen> iterator() {
-        return internalList_f.iterator();
+        return internalListF.iterator();
     } //search what iterator is doing
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof UniqueFreshmenList // instanceof handles nulls
-                        && internalList_f.equals(((UniqueFreshmenList) other).internalList_f));
+                        && internalListF.equals(((UniqueFreshmenList) other).internalListF));
     }
 
     @Override
     public int hashCode() {
-        return internalList_f.hashCode();
+        return internalListF.hashCode();
     }
 
     /**

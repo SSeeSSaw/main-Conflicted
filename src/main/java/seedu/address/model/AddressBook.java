@@ -8,8 +8,8 @@ import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
 import seedu.address.model.freshmen.Freshmen;
-import seedu.address.model.person.Person;
 import seedu.address.model.freshmen.UniqueFreshmenList;
+import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
 
 
@@ -147,13 +147,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         return persons.asUnmodifiableObservableList().size() + " persons";
         // TODO: refine later
     }
-/*
-    @Override
-    public String toString_f() {
-        return freshmen.asUnmodifiableObservableList().size() + " freshmen";
-        // TODO: refine later
-    }
-*/
+
     @Override
     public ObservableList<Person> getPersonList() {
         return persons.asUnmodifiableObservableList();

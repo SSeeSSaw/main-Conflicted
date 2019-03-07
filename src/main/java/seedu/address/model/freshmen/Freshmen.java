@@ -1,14 +1,12 @@
 package seedu.address.model.freshmen;
 
-
-import seedu.address.model.tag.Tag;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import seedu.address.model.tag.Tag;
 
 /**
  * Represents a Person in the address book.
@@ -17,40 +15,40 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 public class Freshmen {
 
     // Identity fields
-    private final Name name_f;
-    private final Phone phone_f;
-    private final Email email_f;
+    private final Name nameF;
+    private final Phone phoneF;
+    private final Email emailF;
 
     // Data fields
-    private final Address address_f;
-    private final Set<Tag> tags_f = new HashSet<>();
+    private final Address addressF;
+    private final Set<Tag> tagsF = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
     public Freshmen(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
-        this.name_f = name;
-        this.phone_f = phone;
-        this.email_f = email;
-        this.address_f = address;
-        this.tags_f.addAll(tags);
+        this.nameF = name;
+        this.phoneF = phone;
+        this.emailF = email;
+        this.addressF = address;
+        this.tagsF.addAll(tags);
     }
 
     public Name getName() {
-        return name_f;
+        return nameF;
     }
 
     public Phone getPhone() {
-        return phone_f;
+        return phoneF;
     }
 
     public Email getEmail() {
-        return email_f;
+        return emailF;
     }
 
     public Address getAddress() {
-        return address_f;
+        return addressF;
     }
 
     /**
@@ -58,7 +56,7 @@ public class Freshmen {
      * if modification is attempted.
      */
     public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags_f);
+        return Collections.unmodifiableSet(tagsF);
     }
 
     /**
@@ -100,7 +98,7 @@ public class Freshmen {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name_f, phone_f, email_f, address_f, tags_f);
+        return Objects.hash(nameF, phoneF, emailF, addressF, tagsF);
     }
 
     @Override
