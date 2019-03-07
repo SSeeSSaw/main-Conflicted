@@ -102,7 +102,7 @@ public class FParserUtil {
      *
      * @throws ParseException if the given {@code tag} is invalid.
      */
-    public static Tag parseTag_f(String tag) throws ParseException {
+    public static Tag parseTagF(String tag) throws ParseException {
         requireNonNull(tag);
         String trimmedTag = tag.trim();
         if (!Tag.isValidTagName(trimmedTag)) {
@@ -118,7 +118,7 @@ public class FParserUtil {
         requireNonNull(tags);
         final Set<Tag> tagSet = new HashSet<>();
         for (String tagName : tags) {
-            tagSet.add(parseTag_f(tagName));
+            tagSet.add(parseTagF(tagName));
         }
         return tagSet;
     }
