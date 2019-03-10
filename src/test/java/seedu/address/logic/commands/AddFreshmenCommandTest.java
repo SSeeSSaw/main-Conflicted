@@ -220,7 +220,6 @@ public class AddFreshmenCommandTest {
      */
     private class ModelStubWithPerson extends ModelStub {
         private final Person person;
-       
 
         ModelStubWithPerson(Person person) {
             requireNonNull(person);
