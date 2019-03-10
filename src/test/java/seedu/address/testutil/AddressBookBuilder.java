@@ -28,10 +28,6 @@ public class AddressBookBuilder {
         addressBook.addPerson(person);
         return this;
     }
-    public AddressBookBuilder withFreshmen(Freshmen freshmen) {
-        addressBook.addFreshmen(freshmen);
-        return this;
-    }
 
     public AddressBook build() {
         return addressBook;
