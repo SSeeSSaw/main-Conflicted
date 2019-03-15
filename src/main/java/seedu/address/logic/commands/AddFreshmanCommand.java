@@ -1,7 +1,5 @@
 package seedu.address.logic.commands;
 
-import seedu.address.model.role.Participant;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
@@ -12,7 +10,11 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.role.Participant;
 
+/**
+ * Adds a freshman to the address book.
+ */
 public class AddFreshmanCommand extends AddCommand{
 
     public static final String COMMAND_WORD = "add_f";
@@ -59,5 +61,4 @@ public class AddFreshmanCommand extends AddCommand{
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
-
 }
