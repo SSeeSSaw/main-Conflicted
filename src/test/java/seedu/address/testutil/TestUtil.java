@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
-import seedu.address.model.freshmen.Freshmen;
 import seedu.address.model.person.Person;
 
 /**
@@ -52,8 +51,5 @@ public class TestUtil {
      */
     public static Person getPerson(Model model, Index index) {
         return model.getFilteredPersonList().get(index.getZeroBased());
-    }
-    public static Freshmen getFreshmen(Model model, Index index) {
-        return model.getFilteredFreshmenList().get(index.getZeroBased());
     }
 }
