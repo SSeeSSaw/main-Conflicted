@@ -15,7 +15,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.freshmen.Freshmen;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 
@@ -28,7 +27,6 @@ public class ModelManager implements Model {
     private final VersionedAddressBook versionedAddressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-    private final FilteredList<Freshmen> filteredFreshmen;
     private final SimpleObjectProperty<Person> selectedPerson = new SimpleObjectProperty<>();
 
     /**
@@ -43,7 +41,6 @@ public class ModelManager implements Model {
         versionedAddressBook = new VersionedAddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(versionedAddressBook.getPersonList());
-        filteredFreshmen = new FilteredList<>(versionedAddressBook.getFreshmenList());
         filteredPersons.addListener(this::ensureSelectedPersonIsValid);
     }
 
@@ -105,12 +102,6 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public boolean hasFreshmen(Freshmen freshmen) {
-        requireNonNull(freshmen);
-        return versionedAddressBook.hasFreshmen(freshmen);
-    }
-
-    @Override
     public void deletePerson(Person target) {
         versionedAddressBook.removePerson(target);
     }
@@ -118,12 +109,6 @@ public class ModelManager implements Model {
     @Override
     public void addPerson(Person person) {
         versionedAddressBook.addPerson(person);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-    }
-
-    @Override
-    public void addFreshmen(Freshmen freshmen) {
-        versionedAddressBook.addFreshmen(freshmen);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
     }
 
@@ -144,17 +129,12 @@ public class ModelManager implements Model {
     public ObservableList<Person> getFilteredPersonList() {
         return filteredPersons;
     }
-    @Override
-    public ObservableList<Freshmen> getFilteredFreshmenList() {
-        return filteredFreshmen;
-    }
 
     @Override
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
     }
-
 
     //=========== Undo/Redo =================================================================================
 

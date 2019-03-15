@@ -6,7 +6,6 @@ import java.util.function.Predicate;
 import javafx.beans.property.ReadOnlyProperty;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.freshmen.Freshmen;
 import seedu.address.model.person.Person;
 
 /**
@@ -59,10 +58,6 @@ public interface Model {
      */
     boolean hasPerson(Person person);
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
-     */
-    boolean hasFreshmen(Freshmen freshmen);
-    /**
      * Deletes the given person.
      * The person must exist in the address book.
      */
@@ -75,12 +70,6 @@ public interface Model {
     void addPerson(Person person);
 
     /**
-     * Adds the given person.
-     * {@code person} must not already exist in the address book.
-     */
-    void addFreshmen(Freshmen freshmen);
-
-    /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
@@ -89,7 +78,6 @@ public interface Model {
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
-    ObservableList<Freshmen> getFilteredFreshmenList();
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.

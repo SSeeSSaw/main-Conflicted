@@ -7,8 +7,6 @@ import java.util.List;
 import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.InvalidationListenerManager;
-import seedu.address.model.freshmen.Freshmen;
-import seedu.address.model.freshmen.UniqueFreshmenList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
 
@@ -20,7 +18,6 @@ import seedu.address.model.person.UniquePersonList;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
-    private final UniqueFreshmenList freshmen;
     private final InvalidationListenerManager invalidationListenerManager = new InvalidationListenerManager();
 
     /*
@@ -32,10 +29,6 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     {
         persons = new UniquePersonList();
-    }
-
-    {
-        freshmen = new UniqueFreshmenList();
     }
 
     public AddressBook() {}
@@ -77,13 +70,6 @@ public class AddressBook implements ReadOnlyAddressBook {
         requireNonNull(person);
         return persons.contains(person);
     }
-    /**
-     * Returns true if a freshman with the same identity as {@code freshman} exists in the address book.
-     */
-    public boolean hasFreshmen(Freshmen freshman) {
-        requireNonNull(freshman);
-        return freshmen.contains(freshman);
-    }
 
     /**
      * Adds a person to the address book.
@@ -97,10 +83,6 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Adds a freshmen to the address book.
      * The freshmen must not already exist in the address book.
      */
-    public void addFreshmen(Freshmen f) {
-        freshmen.add(f);
-        indicateModified();
-    }
 
     /**
      * Replaces the given person {@code target} in the list with {@code editedPerson}.
@@ -151,11 +133,6 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public ObservableList<Person> getPersonList() {
         return persons.asUnmodifiableObservableList();
-    }
-
-    @Override
-    public ObservableList<Freshmen> getFreshmenList() {
-        return freshmen.asUnmodifiableObservableList();
     }
 
     @Override
