@@ -1,20 +1,19 @@
 package seedu.address.storage;
 
+import java.util.ArrayList;
+
 import seedu.address.model.role.Participant;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * Stores the list of Houses that have been created, with its (if any) constituent groups.
+ * Stores the list of Freshmen
  */
 public class FreshmanStorage {
 
-    private static ArrayList<String> FreshmenNames = new ArrayList<>();
+    private static ArrayList<String> freshmenNames = new ArrayList<>();
     private static ArrayList<Participant> freshmen = new ArrayList<>();
 
     /**
-     * Constructs a HouseStorage object.
+     * Constructs a List for storing freshmen.
      */
     public FreshmanStorage() {
     }
@@ -24,20 +23,26 @@ public class FreshmanStorage {
     }
 
     /**
-     * Adds a house that does not yet exist
+     * Adds a freshman
      */
     public static void addFreshman(String nameToAdd) {
-        FreshmenNames.add(nameToAdd);
+        freshmenNames.add(nameToAdd);
     }
-
-    public static void deleteFreshman(String nameTODelete) {
-        FreshmenNames.remove(nameTODelete);
+    /**
+     * Deletes a freshman
+     */
+    public static void deleteFreshman(String nameToDelete) {
+        freshmenNames.remove(nameToDelete);
     }
-
+    /**
+     * Checks if a freshman exists
+     */
     public static boolean hasFreshman (String toFind) {
-        return FreshmenNames.contains(toFind);
+        return freshmenNames.contains(toFind);
     }
-
+    /**
+     * Prints the list
+     */
     public static void listFreshmen() {
         for (int i = 0; i < freshmen.size(); i++) {
             System.out.println(freshmen.get(i));
