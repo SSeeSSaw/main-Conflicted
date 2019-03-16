@@ -16,8 +16,11 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.grouping.House;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.*;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.role.Participant;
+import seedu.address.model.tag.Tag;
+import seedu.address.storage.FreshmanStorage;
 import seedu.address.storage.HouseStorage;
 
 /**
@@ -107,12 +110,20 @@ public class ModelManager implements Model {
     @Override
     public void deletePerson(Person target) {
         versionedAddressBook.removePerson(target);
+        if(FreshmanStorage.hasFreshman(target.toString())){
+            FreshmanStorage.deleteFreshman(target.toString());
+        }
     }
 
     @Override
     public void addPerson(Person person) {
         versionedAddressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    }
+
+    @Override
+    public void addFreshman(Participant person) {
+        FreshmanStorage.addFreshman(person.toString());
     }
 
     @Override

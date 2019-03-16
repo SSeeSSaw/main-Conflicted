@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.grouping.House;
 import seedu.address.model.person.Person;
+import seedu.address.model.role.Participant;
 
 /**
  * The API of the Model component.
@@ -63,13 +64,12 @@ public interface Model {
      * The person must exist in the address book.
      */
     void deletePerson(Person target);
-
     /**
      * Adds the given person.
      * {@code person} must not already exist in the address book.
      */
     void addPerson(Person person);
-
+    void addFreshman(Participant person);
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.

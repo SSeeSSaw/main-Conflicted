@@ -16,7 +16,6 @@ import seedu.address.model.tag.Tag;
  * By default everybody will be a participant unless assigned.
  */
 public class Participant extends Person {
-
     private Privilege privilege;
 
     /**
@@ -33,6 +32,7 @@ public class Participant extends Person {
         // By default everybody is a participant
         this.privilege = Privilege.PARTICIPANTS;
     }
+
 
     public void setPrivilege(Privilege privilege) {
         this.privilege = privilege;
