@@ -29,6 +29,7 @@ public class AddFreshmanCommandParser extends AddCommandParser {
      * and returns an AddFreshmanCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
+
     public AddFreshmanCommand parse(String args) throws ParseException{
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
