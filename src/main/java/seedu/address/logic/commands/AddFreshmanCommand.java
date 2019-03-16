@@ -61,4 +61,5 @@ public class AddFreshmanCommand extends AddCommand{
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
+    //Previously the push to branch v1.2 failed, hence the push to a different branch
 }
