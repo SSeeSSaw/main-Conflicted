@@ -15,7 +15,7 @@ import seedu.address.model.role.Participant;
 /**
  * Adds a freshman to the address book.
  */
-public class AddFreshmanCommand extends AddCommand{
+public class AddFreshmanCommand extends AddCommand {
 
     public static final String COMMAND_WORD = "add_f";
 
