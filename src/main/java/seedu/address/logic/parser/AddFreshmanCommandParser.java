@@ -48,6 +48,7 @@ public class AddFreshmanCommandParser extends AddCommandParser {
 
         return new AddFreshmanCommand(freshman);
     }
+    //Again the branch is not accepting the push
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
