@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.grouping.House;
 import seedu.address.model.person.Person;
+import seedu.address.model.role.Ogl;
 import seedu.address.model.role.Participant;
 
 /**
@@ -70,6 +71,7 @@ public interface Model {
      */
     void addPerson(Person person);
     void addFreshman(Participant person);
+    void addOgl(Ogl person);
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.

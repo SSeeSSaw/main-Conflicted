@@ -18,10 +18,12 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.grouping.House;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.role.Ogl;
 import seedu.address.model.role.Participant;
 //import seedu.address.model.tag.Tag;
 import seedu.address.storage.FreshmanStorage;
 import seedu.address.storage.HouseStorage;
+import seedu.address.storage.OglStorage;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -113,6 +115,9 @@ public class ModelManager implements Model {
         if (FreshmanStorage.hasFreshman(target.toString())) {
             FreshmanStorage.deleteFreshman(target.toString());
         }
+        else if (OglStorage.hasOgl(target.toString())) {
+            OglStorage.deleteOgl(target.toString());
+        }
     }
 
     @Override
@@ -124,6 +129,11 @@ public class ModelManager implements Model {
     @Override
     public void addFreshman(Participant person) {
         FreshmanStorage.addFreshman(person.toString());
+    }
+
+    @Override
+    public void addOgl(Ogl person) {
+        OglStorage.addOgl(person.toString());
     }
 
     @Override
