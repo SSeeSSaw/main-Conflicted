@@ -1,13 +1,12 @@
 package seedu.address.storage;
 
-import seedu.address.model.role.Ogl;
-
 import java.util.ArrayList;
 
+import seedu.address.model.role.Ogl;
 /**
  * Stores the list of OGLs
  */
-public class OGLStorage {
+public class OglStorage {
 
     private static ArrayList<String> oglNames = new ArrayList<>();
     private static ArrayList<Ogl> ogls = new ArrayList<>();
@@ -15,7 +14,7 @@ public class OGLStorage {
     /**
      * Constructs a List for storing ogls.
      */
-    public OGLStorage() {
+    public OglStorage() {
     }
 
     public static ArrayList<Ogl> getOgls() {
@@ -25,25 +24,25 @@ public class OGLStorage {
     /**
      * Adds an OGL
      */
-    public static void addOGL(String nameToAdd) {
+    public static void addOgl(String nameToAdd) {
         oglNames.add(nameToAdd);
     }
     /**
      * Deletes a freshman
      */
-    public static void deleteOGL(String nameToDelete) {
+    public static void deleteOgl(String nameToDelete) {
         oglNames.remove(nameToDelete);
     }
     /**
      * Checks if a freshman exists
      */
-    public static boolean hasOGL (String toFind) {
+    public static boolean hasOgl (String toFind) {
         return oglNames.contains(toFind);
     }
     /**
      * Prints the list
      */
-    public static void listOGL() {
+    public static void listOgl() {
         for (int i = 0; i < ogls.size(); i++) {
             System.out.println(ogls.get(i));
             System.out.println();
