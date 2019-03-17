@@ -25,8 +25,8 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.grouping.House;
 import seedu.address.model.person.Person;
-import seedu.address.model.role.Participant;
 import seedu.address.model.role.Ogl;
+import seedu.address.model.role.Participant;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {
