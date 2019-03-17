@@ -114,8 +114,7 @@ public class ModelManager implements Model {
         versionedAddressBook.removePerson(target);
         if (FreshmanStorage.hasFreshman(target.toString())) {
             FreshmanStorage.deleteFreshman(target.toString());
-        }
-        else if (OglStorage.hasOgl(target.toString())) {
+        } else if (OglStorage.hasOgl(target.toString())) {
             OglStorage.deleteOgl(target.toString());
         }
     }

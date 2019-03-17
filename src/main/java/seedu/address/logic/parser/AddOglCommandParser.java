@@ -13,7 +13,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import seedu.address.logic.commands.AddOGLCommand;
+import seedu.address.logic.commands.AddOglCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 import seedu.address.model.grouping.Group;
@@ -29,21 +29,21 @@ import seedu.address.model.tag.Tag;
 /**
  * Parses input arguments and creates a new AddFreshmanCommand object
  */
-public class AddOGLCommandParser extends AddCommandParser {
+public class AddOglCommandParser extends AddCommandParser {
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddFreshmanCommand
      * and returns an AddFreshmanCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public AddOGLCommand parse(String args) throws ParseException {
+    public AddOglCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_SEX, PREFIX_BIRTHDAY, PREFIX_PHONE, PREFIX_EMAIL,
                         PREFIX_MAJOR, PREFIX_GROUP, PREFIX_TAG);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_SEX, PREFIX_BIRTHDAY, PREFIX_PHONE, PREFIX_EMAIL,
                 PREFIX_MAJOR, PREFIX_GROUP) || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddOGLCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddOglCommand.MESSAGE_USAGE));
         }
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
@@ -56,7 +56,7 @@ public class AddOGLCommandParser extends AddCommandParser {
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Ogl person = new Ogl(name, sex, birthday, phone, email, major, group, tagList);
-        return new AddOGLCommand(person);
+        return new AddOglCommand(person);
     }
     //Again the branch is not accepting the push
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {

@@ -18,7 +18,7 @@ import seedu.address.model.role.Ogl;
 /**
  * Adds an OGL to the address book.
  */
-public class AddOGLCommand extends AddCommand {
+public class AddOglCommand extends AddCommand {
 
     public static final String COMMAND_WORD = "add_ogl";
 
@@ -52,7 +52,7 @@ public class AddOGLCommand extends AddCommand {
      * Creates an AddFreshmanCommand to add the specified {@code Participant}
      */
 
-    public AddOGLCommand(Ogl person) {
+    public AddOglCommand(Ogl person) {
         super(person);
         toAdd = person;
     }
